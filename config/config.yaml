@@ -1,0 +1,21 @@
+ipfs:
+  bin_path: /Users/zhengpingli/work/ipfs_auto/bin
+  ipfs_bin: /Users/zhengpingli/work/ipfs_auto/bin/ipfs
+  ipfs_bin_name: ipfs
+  ipfs_cluster_ctl_bin: /Users/zhengpingli/work/ipfs_auto/bin/ipfs-cluster-ctl
+  ipfs_cluster_ctl_bin_name: ipfs-cluster-ctl
+  ipfs_cluster_ctl_folder: ipfs-cluster-ctl
+  ipfs_cluster_ctl_url: https://dist.ipfs.io/ipfs-cluster-ctl/v0.5.0/ipfs-cluster-ctl_v0.5.0_darwin-amd64.tar.gz
+  ipfs_cluster_service_bin: /Users/zhengpingli/work/ipfs_auto/bin/ipfs-cluster-service
+  ipfs_cluster_service_bin_name: ipfs-cluster-service
+  ipfs_cluster_service_folder: ipfs-cluster-service
+  ipfs_cluster_service_url: https://dist.ipfs.io/ipfs-cluster-service/v0.5.0/ipfs-cluster-service_v0.5.0_darwin-amd64.tar.gz
+  ipfs_folder: go-ipfs
+  ipfs_url: https://dist.ipfs.io/go-ipfs/v0.4.17/go-ipfs_v0.4.17_darwin-amd64.tar.gz
+  node0: {api_port: 5004, gateway_port: 5007, http_listen_multiaddress_port: 6007,
+    listen_multiaddress_port: 6004, proxy_listen_multiaddress_port: 6010}
+  node1: {IPFS_PATH: null, api_port: 5010, gateway_port: 5013, http_listen_multiaddress_port: 6016,
+    listen_multiaddress_port: 6013, proxy_listen_multiaddress_port: 6019}
+  node_num: 2
+  root_path: /Users/zhengpingli/work/ipfs_auto
+  tmp_path: /Users/zhengpingli/work/ipfs_auto/tmp
