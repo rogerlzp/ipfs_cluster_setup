@@ -1,0 +1,71 @@
+ipfs_cluster_setup
+
+
+Install
+This package depends on python3, with pyyaml, logbook libraries.
+
+For the fist version, it can work well in Mac.
+For other OS system, such as Linux, ubuntu, just change the right binary urls to
+be downloaded in config.yaml according to your OS system.
+ipfs_cluster_ctl_url:
+ipfs_cluster_service_url:
+ipfs_url:
+
+root_path in config.yaml should be modified according to your env.
+All the files, including ipfs node, ipfs-cluster node, bin, tmp will be put there.
+
+node_num is how much node you want to running.
+
+Note:
+ ipfs_bin: should be kept empty for the first time when the env is not ready.
+ It will be updated automatically after the env is set.
+
+After set the right parameter,
+First run get_ipfs.py, which will make the dirs, get the binaries and copy to the bin place.
+Second run run_ipfs.py,
+    1. it first init ipfs,  update the node with the right port. It will choose a random port that is free,
+    2. start the ipfs daemon.
+    3. init ipfs-culster-service, update the port,
+    4. start the first ipfs-culster node daemon. for other ipfs-cluster nodes, new option "--bootstrap /ip4/127.0.0.1/tcp/6004/ipfs/QmedHre1SG7d9rYCJmcQ7dxqSy34vWwqwUJAsBV4uvk2Uv"
+    will be used to join the ipfs-cluster.
+    5. after that, you can check it with command:
+       ./bin/ipfs-cluster-ctl --host /ip4/127.0.0.1/tcp/6004/ipfs/QmedHre1SG7d9rYCJmcQ7dxqSy34vWwqwUJAsBV4uvk2Uv --secret 8512641fc38bd61cd784b09def7c72075c4ad4995d1f8d91db2bef4433fdb2d5 peers ls
+
+QmQGqPPziM97r2bsKnKVX4QiC1tKY7DJR2DZMnqtts2x9d | zhengpingdembp | Sees 1 other peers
+  > Addresses:
+    - /ip4/127.0.0.1/tcp/6013/ipfs/QmQGqPPziM97r2bsKnKVX4QiC1tKY7DJR2DZMnqtts2x9d
+    - /ip4/192.168.1.2/tcp/6013/ipfs/QmQGqPPziM97r2bsKnKVX4QiC1tKY7DJR2DZMnqtts2x9d
+    - /ip4/58.32.33.171/tcp/51085/ipfs/QmQGqPPziM97r2bsKnKVX4QiC1tKY7DJR2DZMnqtts2x9d
+  > IPFS: Qma13y1Uh9bZskFYeaCSM32uQRacsuprN1U57n6z8bqSDE
+    - /ip4/127.0.0.1/tcp/4001/ipfs/Qma13y1Uh9bZskFYeaCSM32uQRacsuprN1U57n6z8bqSDE
+    - /ip4/192.168.1.2/tcp/4001/ipfs/Qma13y1Uh9bZskFYeaCSM32uQRacsuprN1U57n6z8bqSDE
+    - /ip4/58.32.33.171/tcp/16139/ipfs/Qma13y1Uh9bZskFYeaCSM32uQRacsuprN1U57n6z8bqSDE
+    - /ip4/58.32.33.171/tcp/4001/ipfs/Qma13y1Uh9bZskFYeaCSM32uQRacsuprN1U57n6z8bqSDE
+    - /ip6/::1/tcp/4001/ipfs/Qma13y1Uh9bZskFYeaCSM32uQRacsuprN1U57n6z8bqSDE
+QmedHre1SG7d9rYCJmcQ7dxqSy34vWwqwUJAsBV4uvk2Uv | zhengpingdembp | Sees 1 other peers
+  > Addresses:
+    - /ip4/127.0.0.1/tcp/6004/ipfs/QmedHre1SG7d9rYCJmcQ7dxqSy34vWwqwUJAsBV4uvk2Uv
+    - /ip4/192.168.1.2/tcp/6004/ipfs/QmedHre1SG7d9rYCJmcQ7dxqSy34vWwqwUJAsBV4uvk2Uv
+    - /ip4/58.32.33.171/tcp/50309/ipfs/QmedHre1SG7d9rYCJmcQ7dxqSy34vWwqwUJAsBV4uvk2Uv
+  > IPFS: QmYogSWknMDNmc5fFTwBxkp2i5BLQ5ppLjgi7FdCcnf4EZ
+    - /ip4/127.0.0.1/tcp/4001/ipfs/QmYogSWknMDNmc5fFTwBxkp2i5BLQ5ppLjgi7FdCcnf4EZ
+    - /ip4/192.168.1.2/tcp/4001/ipfs/QmYogSWknMDNmc5fFTwBxkp2i5BLQ5ppLjgi7FdCcnf4EZ
+    - /ip4/58.32.33.171/tcp/4001/ipfs/QmYogSWknMDNmc5fFTwBxkp2i5BLQ5ppLjgi7FdCcnf4EZ
+    - /ip4/58.32.33.171/tcp/49111/ipfs/QmYogSWknMDNmc5fFTwBxkp2i5BLQ5ppLjgi7FdCcnf4EZ
+    - /ip6/::1/tcp/4001/ipfs/QmYogSWknMDNmc5fFTwBxkp2i5BLQ5ppLjgi7FdCcnf4EZ
+
+The above result show that the cluster are set correctly, and more experimental can be taken.
+
+TODO:
+1. choose the right url automatically after check the OS system.
+2. For Chinese user, we will set zip files on Qiniu sooner so that VPN is not needed.
+3. running it on other systems and fix it
+4. ...
+
+Lots of work needed to make it works gracefully, feel free to update it, Thanks.
+
+
+
+
+License
+Free to use and update it.
